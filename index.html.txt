@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Regras que Salvam Vidas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>?? Regras que Salvam Vidas</h1>
+  <p>Arraste a imagem para a regra correspondente</p>
+
+  <div class="container">
+    <div class="coluna-imagens">
+      <img src="imagens/regra1.png" draggable="true" ondragstart="drag(event)" id="img1">
+      <img src="imagens/regra2.png" draggable="true" ondragstart="drag(event)" id="img2">
+      <img src="imagens/regra3.png" draggable="true" ondragstart="drag(event)" id="img3">
+      <img src="imagens/regra4.png" draggable="true" ondragstart="drag(event)" id="img4">
+      <img src="imagens/regra5.png" draggable="true" ondragstart="drag(event)" id="img5">
+      <img src="imagens/regra6.png" draggable="true" ondragstart="drag(event)" id="img6">
+      <img src="imagens/regra7.png" draggable="true" ondragstart="drag(event)" id="img7">
+      <img src="imagens/regra8.png" draggable="true" ondragstart="drag(event)" id="img8">
+      <img src="imagens/regra9.png" draggable="true" ondragstart="drag(event)" id="img9">
+      <img src="imagens/regra10.png" draggable="true" ondragstart="drag(event)" id="img10">
+    </div>
+
+    <div class="coluna-regras">
+      <div class="dropzone" data-regra="img1" ondrop="drop(event)" ondragover="allowDrop(event)">Segurança na direção</div>
+      <div class="dropzone" data-regra="img2">Preparação para Tarefas Perigosas</div>
+      <div class="dropzone" data-regra="img3">Desativar os Controles de Segurança</div>
+      <div class="dropzone" data-regra="img4">Isolamento de Energia e Segurança de Máquinas</div>
+      <div class="dropzone" data-regra="img5">Máquinas e Equipamentos Agrícolas</div>
+      <div class="dropzone" data-regra="img6">Espaço Confinado</div>
+      <div class="dropzone" data-regra="img7">Elevação Mecânica</div>
+      <div class="dropzone" data-regra="img8">Trabalho em Altura</div>
+      <div class="dropzone" data-regra="img9">Manuseio de Produtos Químicos Perigosos</div>
+      <div class="dropzone" data-regra="img10">Trabalho a Quente</div>
+    </div>
+  </div>
+
+  <div id="parabens"></div>
+  <div class="confetes"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
