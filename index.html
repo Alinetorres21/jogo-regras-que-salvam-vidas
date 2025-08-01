@@ -1,42 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alternador de Tema + Feedback</title>
+  <title>Regras que Salvam Vidas</title>
   <style>
     body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff;
-      color: #000;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      background-color: #e6f0ff;
+      color: #333;
+      padding: 20px;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-
     body.dark {
-      background-color: #111;
+      background-color: #1e1e2f;
       color: #eee;
     }
-
     .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
+    h1, p {
       text-align: center;
+      margin-bottom: 20px;
     }
-
-    #indicador-tema {
-      font-weight: bold;
-      margin-bottom: 24px;
+    .linha-regra {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .imagem {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      padding: 8px;
+      margin-right: 40px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .imagem:active {
+      transform: scale(1.05);
+      cursor: grabbing;
+      opacity: 0.8;
+    }
+    .caixa-texto {
+      flex: 1;
+      max-width: 600px;
+      border: 2px dashed #aaa;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
       font-size: 16px;
-      color: #444;
+      transition: background 0.3s ease, border 0.3s ease;
     }
-
-    body.dark #indicador-tema {
-      color: #ddd;
+    .caixa-texto.dragover {
+      background-color: #d0ebff;
+      border-color: #0077cc;
     }
-
+    body.dark .caixa-texto {
+      background-color: #2e2e3e;
+      border-color: #555;
+    }
+    body.dark .imagem {
+      background-color: #444;
+      border-color: #666;
+    }
     button {
+      display: block;
+      margin: 0 auto 10px;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
@@ -46,17 +90,25 @@
       color: white;
       transition: background-color 0.3s ease;
     }
-
     button:hover {
       background-color: #0056b3;
     }
-
+    #indicador-tema {
+      text-align: center;
+      font-weight: bold;
+      margin: 20px auto;
+      font-size: 16px;
+      color: #444;
+    }
+    body.dark #indicador-tema {
+      color: #ddd;
+    }
     .mensagem {
-      margin-top: 24px;
+      text-align: center;
+      margin-top: 20px;
       font-size: 18px;
       font-weight: bold;
     }
-
     #confetes {
       position: fixed;
       top: 0;
@@ -67,7 +119,6 @@
       overflow: hidden;
       z-index: 1000;
     }
-
     .confete {
       width: 10px;
       height: 10px;
@@ -75,7 +126,6 @@
       position: absolute;
       animation: cair 2s linear infinite;
     }
-
     @keyframes cair {
       0% {transform: translateY(0);}
       100% {transform: translateY(100vh);}
@@ -84,49 +134,60 @@
 </head>
 <body>
   <div class="container">
+    <button onclick="alternarTema()">🌗 Alternar tema</button>
     <p id="indicador-tema">🌞 Tema Claro ativo</p>
-    <button onclick="alternarTema()">Alternar Tema</button>
-    <br><br>
-    <button onclick="mostrarErro()">Simular Erro de Conexão</button>
-    <button onclick="mostrarParabens()">Mostrar Parabéns 🎉</button>
+    <h1>🚦 Regras que Salvam Vidas</h1>
+    <p>Arraste a imagem para a regra correspondente:</p>
+
+    <!-- 10 Regras completas -->
+    <div class="linha-regra">
+      <img src="imagens/regra1.png" class="imagem" id="img1" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img1" ondrop="drop(event)" ondragover="allowDrop(event)">Segurança na direção</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra2.png" class="imagem" id="img2" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img2" ondrop="drop(event)" ondragover="allowDrop(event)">Uso de EPI</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra3.png" class="imagem" id="img3" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img3" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em altura</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra4.png" class="imagem" id="img4" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img4" ondrop="drop(event)" ondragover="allowDrop(event)">Espaço confinado</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra5.png" class="imagem" id="img5" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img5" ondrop="drop(event)" ondragover="allowDrop(event)">Bloqueio e etiquetagem</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra6.png" class="imagem" id="img6" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img6" ondrop="drop(event)" ondragover="allowDrop(event)">Manuseio de produtos químicos</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra7.png" class="imagem" id="img7" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img7" ondrop="drop(event)" ondragover="allowDrop(event)">Movimentação de cargas</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra8.png" class="imagem" id="img8" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img8" ondrop="drop(event)" ondragover="allowDrop(event)">Máquinas e equipamentos</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra9.png" class="imagem" id="img9" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img9" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em eletricidade</div>
+    </div>
+    <div class="linha-regra">
+      <img src="imagens/regra10.png" class="imagem" id="img10" draggable="true" ondragstart="drag(event)">
+      <div class="caixa-texto" data-regra="img10" ondrop="drop(event)" ondragover="allowDrop(event)">Conduta em áreas perigosas</div>
+    </div>
+
+    <button onclick="mostrarErro()">🚫 Simular Erro de Conexão</button>
+    <button onclick="mostrarParabens()">🎉 Mostrar Parabéns</button>
     <p class="mensagem" id="mensagem-feedback"></p>
   </div>
 
   <div id="confetes"></div>
 
   <script>
-    function alternarTema() {
-      document.body.classList.toggle("dark");
-      const indicador = document.getElementById("indicador-tema");
-      indicador.innerText = document.body.classList.contains("dark")
-        ? "🌙 Tema Escuro ativo"
-        : "🌞 Tema Claro ativo";
-    }
-
-    function mostrarErro() {
-      document.getElementById("mensagem-feedback").innerText = "🚫 Tente outra vez: Conexão falhou.";
-    }
-
-    function mostrarParabens() {
-      const mensagem = document.getElementById("mensagem-feedback");
-      mensagem.innerText = "🎉 Parabéns! Agora pratique as regras em seu trabalho.";
-      criarConfetes();
-      setTimeout(() => {
-        document.getElementById("confetes").innerHTML = "";
-      }, 3000);
-    }
-
-    function criarConfetes() {
-      const confetes = document.getElementById("confetes");
-      confetes.innerHTML = "";
-      for (let i = 0; i < 100; i++) {
-        const c = document.createElement("div");
-        c.classList.add("confete");
-        c.style.left = Math.random() * window.innerWidth + "px";
-        c.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-        confetes.appendChild(c);
-      }
-    }
-  </script>
-</body>
-</html>
+    function allowDrop(ev) {
+     
