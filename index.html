@@ -13,7 +13,14 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #e6f0ff;
+      color: #333;
       padding: 20px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark {
+      background-color: #1e1e2f;
+      color: #eee;
     }
 
     .container {
@@ -21,14 +28,25 @@
       width: 100%;
     }
 
-    h1 {
+    h1, p {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
-    p {
-      text-align: center;
-      margin-bottom: 24px;
+    button {
+      display: block;
+      margin: 0 auto 20px;
+      padding: 8px 16px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #005fa3;
     }
 
     .linha-regra {
@@ -43,8 +61,17 @@
       object-fit: contain;
       background-color: #fff;
       border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
       padding: 8px;
       margin-right: 40px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .imagem:active {
+      transform: scale(1.05);
+      cursor: grabbing;
+      opacity: 0.8;
     }
 
     .caixa-texto {
@@ -52,19 +79,39 @@
       max-width: 600px;
       border: 2px dashed #aaa;
       background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 12px 18px;
       font-size: 16px;
+      transition: background 0.3s ease, border 0.3s ease;
+    }
+
+    .caixa-texto.dragover {
+      background-color: #d0ebff;
+      border-color: #0077cc;
+    }
+
+    body.dark .caixa-texto {
+      background-color: #2e2e3e;
+      border-color: #555;
+    }
+
+    body.dark .imagem {
+      background-color: #444;
+      border-color: #666;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <button onclick="alternarTema()">🌗 Alternar tema</button>
     <h1>🔒 Regras que Salvam Vidas</h1>
     <p>Arraste a imagem para a regra correspondente:</p>
 
+    <!-- Blocos com regras -->
     <div class="linha-regra">
       <img src="imagens/regra1.png" class="imagem" id="img1" draggable="true" ondragstart="drag(event)">
       <div class="caixa-texto" data-regra="img1" ondrop="drop(event)" ondragover="allowDrop(event)">Segurança na direção</div>
@@ -119,6 +166,7 @@
   <script>
     function allowDrop(ev) {
       ev.preventDefault();
+      ev.target.classList.add("dragover");
     }
 
     function drag(ev) {
@@ -127,8 +175,11 @@
 
     function drop(ev) {
       ev.preventDefault();
+      ev.target.classList.remove("dragover");
+
       const data = ev.dataTransfer.getData("text");
       const img = document.getElementById(data);
+
       if (ev.target.getAttribute("data-regra") === data) {
         ev.target.appendChild(img);
         ev.target.style.border = "2px solid green";
@@ -136,6 +187,10 @@
         ev.target.appendChild(img);
         ev.target.style.border = "2px solid red";
       }
+    }
+
+    function alternarTema() {
+      document.body.classList.toggle("dark");
     }
   </script>
 </body>
