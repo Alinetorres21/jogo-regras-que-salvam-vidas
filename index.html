@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alternador de Tema</title>
+  <title>Alternador de Tema + Feedback</title>
   <style>
     body {
       margin: 0;
@@ -50,22 +50,81 @@
     button:hover {
       background-color: #0056b3;
     }
+
+    .mensagem {
+      margin-top: 24px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #confetes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    .confete {
+      width: 10px;
+      height: 10px;
+      background-color: #f39c12;
+      position: absolute;
+      animation: cair 2s linear infinite;
+    }
+
+    @keyframes cair {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(100vh);}
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <p id="indicador-tema">🌞 Tema Claro ativo</p>
     <button onclick="alternarTema()">Alternar Tema</button>
+    <br><br>
+    <button onclick="mostrarErro()">Simular Erro de Conexão</button>
+    <button onclick="mostrarParabens()">Mostrar Parabéns 🎉</button>
+    <p class="mensagem" id="mensagem-feedback"></p>
   </div>
+
+  <div id="confetes"></div>
 
   <script>
     function alternarTema() {
       document.body.classList.toggle("dark");
       const indicador = document.getElementById("indicador-tema");
-      if (document.body.classList.contains("dark")) {
-        indicador.innerText = "🌙 Tema Escuro ativo";
-      } else {
-        indicador.innerText = "🌞 Tema Claro ativo";
+      indicador.innerText = document.body.classList.contains("dark")
+        ? "🌙 Tema Escuro ativo"
+        : "🌞 Tema Claro ativo";
+    }
+
+    function mostrarErro() {
+      document.getElementById("mensagem-feedback").innerText = "🚫 Tente outra vez: Conexão falhou.";
+    }
+
+    function mostrarParabens() {
+      const mensagem = document.getElementById("mensagem-feedback");
+      mensagem.innerText = "🎉 Parabéns! Agora pratique as regras em seu trabalho.";
+      criarConfetes();
+      setTimeout(() => {
+        document.getElementById("confetes").innerHTML = "";
+      }, 3000);
+    }
+
+    function criarConfetes() {
+      const confetes = document.getElementById("confetes");
+      confetes.innerHTML = "";
+      for (let i = 0; i < 100; i++) {
+        const c = document.createElement("div");
+        c.classList.add("confete");
+        c.style.left = Math.random() * window.innerWidth + "px";
+        c.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        confetes.appendChild(c);
       }
     }
   </script>
