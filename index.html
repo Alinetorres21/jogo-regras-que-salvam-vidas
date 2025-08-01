@@ -103,15 +103,40 @@
       background-color: #444;
       border-color: #666;
     }
+
+    #mensagem {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff8c5;
+      color: #333;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 999;
+      animation: fadeInOut 2s ease-in-out;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <button onclick="alternarTema()"> Alternar tema</button>
-    <h1> Regras que Salvam Vidas</h1>
+    <button onclick="alternarTema()">🌙 Alternar tema</button>
+    <h1>🚨 Regras que Salvam Vidas</h1>
     <p>Arraste a imagem para a regra correspondente:</p>
 
-    <!-- Blocos com regras -->
+    <div id="mensagem"></div>
+
+    <!-- 🔄 Blocos de regras -->
     <div class="linha-regra">
       <img src="imagens/regra1.png" class="imagem" id="img1" draggable="true" ondragstart="drag(event)">
       <div class="caixa-texto" data-regra="img1" ondrop="drop(event)" ondragover="allowDrop(event)">Segurança na direção</div>
@@ -173,6 +198,17 @@
       ev.dataTransfer.setData("text", ev.target.id);
     }
 
+    function mostrarMensagem(texto, corFundo = "#fff8c5") {
+      const mensagem = document.getElementById("mensagem");
+      mensagem.innerText = texto;
+      mensagem.style.backgroundColor = corFundo;
+      mensagem.style.display = "block";
+
+      setTimeout(() => {
+        mensagem.style.display = "none";
+      }, 2000);
+    }
+
     function drop(ev) {
       ev.preventDefault();
       ev.target.classList.remove("dragover");
@@ -180,19 +216,6 @@
       const data = ev.dataTransfer.getData("text");
       const img = document.getElementById(data);
 
-      if (ev.target.getAttribute("data-regra") === data) {
-        ev.target.appendChild(img);
-        ev.target.style.border = "2px solid green";
-      } else {
-        ev.target.appendChild(img);
-        ev.target.style.border = "2px solid red";
-      }
-    }
+      if (ev.target.querySelector('img')) return;
 
-    function alternarTema() {
-      document.body.classList.toggle("dark");
-    }
-  </script>
-</body>
-</html>
-
+      if (ev.target.getAttribute("data-regra")
