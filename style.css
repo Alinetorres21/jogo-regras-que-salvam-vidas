@@ -10,9 +10,9 @@ h1 {
 
 .container {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 20px;
+  flex-direction: row;
+  align-items: stretch; /* garante mesma altura */
+  gap: 16px; /* espaço entre imagem e texto */
 }
 
 .coluna-imagens, .coluna-regras {
@@ -21,9 +21,9 @@ h1 {
 }
 
 img {
-  width: 100px;
-  margin: 10px;
-  border: 2px solid #aaa;
+   width: 100px;
+  height: 100%;
+  object-fit: contain;
 }
 
 .dropzone {
