@@ -16,7 +16,7 @@
       background-color: #e6f0ff;
       color: #333;
       padding: 20px;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     body.dark {
       background-color: #1e1e2f;
@@ -64,7 +64,7 @@
       justify-content: center;
       padding: 12px 18px;
       font-size: 16px;
-      transition: background 0.3s ease, border 0.3s ease;
+      transition: background-color 0.3s ease, border 0.3s ease;
     }
     .caixa-texto.dragover {
       background-color: #d0ebff;
@@ -80,7 +80,7 @@
     }
     button {
       display: block;
-      margin: 0 auto 10px;
+      margin: 10px auto;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
@@ -139,47 +139,17 @@
     <h1>🚦 Regras que Salvam Vidas</h1>
     <p>Arraste a imagem para a regra correspondente:</p>
 
-    <!-- 10 Regras completas -->
-    <div class="linha-regra">
-      <img src="imagens/regra1.png" class="imagem" id="img1" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img1" ondrop="drop(event)" ondragover="allowDrop(event)">Segurança na direção</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra2.png" class="imagem" id="img2" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img2" ondrop="drop(event)" ondragover="allowDrop(event)">Uso de EPI</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra3.png" class="imagem" id="img3" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img3" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em altura</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra4.png" class="imagem" id="img4" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img4" ondrop="drop(event)" ondragover="allowDrop(event)">Espaço confinado</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra5.png" class="imagem" id="img5" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img5" ondrop="drop(event)" ondragover="allowDrop(event)">Bloqueio e etiquetagem</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra6.png" class="imagem" id="img6" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img6" ondrop="drop(event)" ondragover="allowDrop(event)">Manuseio de produtos químicos</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra7.png" class="imagem" id="img7" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img7" ondrop="drop(event)" ondragover="allowDrop(event)">Movimentação de cargas</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra8.png" class="imagem" id="img8" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img8" ondrop="drop(event)" ondragover="allowDrop(event)">Máquinas e equipamentos</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra9.png" class="imagem" id="img9" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img9" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em eletricidade</div>
-    </div>
-    <div class="linha-regra">
-      <img src="imagens/regra10.png" class="imagem" id="img10" draggable="true" ondragstart="drag(event)">
-      <div class="caixa-texto" data-regra="img10" ondrop="drop(event)" ondragover="allowDrop(event)">Conduta em áreas perigosas</div>
-    </div>
+    <!-- Regras -->
+    <div class="linha-regra"><img src="imagens/regra1.png" class="imagem" id="img1" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img1" ondrop="drop(event)" ondragover="allowDrop(event)">Segurança na direção</div></div>
+    <div class="linha-regra"><img src="imagens/regra2.png" class="imagem" id="img2" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img2" ondrop="drop(event)" ondragover="allowDrop(event)">Uso de EPI</div></div>
+    <div class="linha-regra"><img src="imagens/regra3.png" class="imagem" id="img3" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img3" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em altura</div></div>
+    <div class="linha-regra"><img src="imagens/regra4.png" class="imagem" id="img4" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img4" ondrop="drop(event)" ondragover="allowDrop(event)">Espaço confinado</div></div>
+    <div class="linha-regra"><img src="imagens/regra5.png" class="imagem" id="img5" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img5" ondrop="drop(event)" ondragover="allowDrop(event)">Bloqueio e etiquetagem</div></div>
+    <div class="linha-regra"><img src="imagens/regra6.png" class="imagem" id="img6" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img6" ondrop="drop(event)" ondragover="allowDrop(event)">Manuseio de produtos químicos</div></div>
+    <div class="linha-regra"><img src="imagens/regra7.png" class="imagem" id="img7" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img7" ondrop="drop(event)" ondragover="allowDrop(event)">Movimentação de cargas</div></div>
+    <div class="linha-regra"><img src="imagens/regra8.png" class="imagem" id="img8" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img8" ondrop="drop(event)" ondragover="allowDrop(event)">Máquinas e equipamentos</div></div>
+    <div class="linha-regra"><img src="imagens/regra9.png" class="imagem" id="img9" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img9" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em eletricidade</div></div>
+    <div class="linha-regra"><img src="imagens/regra10.png" class="imagem" id="img10" draggable="true" ondragstart="drag(event)"><div class="caixa-texto" data-regra="img10" ondrop="drop(event)" ondragover="allowDrop(event)">Conduta em áreas perigosas</div></div>
 
     <button onclick="mostrarErro()">🚫 Simular Erro de Conexão</button>
     <button onclick="mostrarParabens()">🎉 Mostrar Parabéns</button>
@@ -190,4 +160,13 @@
 
   <script>
     function allowDrop(ev) {
-     
+      ev.preventDefault();
+      ev.target.classList.add("dragover");
+    }
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+    function drop(ev) {
+      ev.preventDefault();
+      ev.target.classList.remove("dragover");
+     v
