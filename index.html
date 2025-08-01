@@ -10,6 +10,11 @@
       padding: 20px;
     }
 
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     .linha-regra {
       display: flex;
       align-items: stretch;
@@ -22,8 +27,8 @@
       object-fit: contain;
       background-color: #fff;
       border: 2px solid #ccc;
-      margin-right: 16px;
       padding: 8px;
+      margin-right: 16px;
     }
 
     .caixa-texto {
@@ -32,69 +37,111 @@
       background-color: #f9f9f9;
       display: flex;
       align-items: center;
+      justify-content: center;
       padding: 0 12px;
       font-size: 16px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 32px;
+      transition: border-color 0.3s;
     }
   </style>
 </head>
 <body>
+
   <h1>🔒 Regras que Salvam Vidas</h1>
-  <p>Arraste a imagem para a regra correspondente 👇</p>
+  <p>Arraste a imagem para a regra correspondente:</p>
 
   <!-- Regras -->
   <div class="linha-regra">
-    <img src="img1.png" class="imagem" alt="Segurança na direção">
-    <div class="caixa-texto">Segurança na direção</div>
+    <img src="img/img1.png" class="imagem" alt="Segurança na direção" draggable="true" ondragstart="drag(event)" id="img1">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img1">
+      Segurança na direção
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img2.png" class="imagem" alt="Preparação para Tarefas Perigosas">
-    <div class="caixa-texto">Preparação para Tarefas Perigosas</div>
+    <img src="img/img2.png" class="imagem" alt="Preparação para Tarefas Perigosas" draggable="true" ondragstart="drag(event)" id="img2">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img2">
+      Preparação para Tarefas Perigosas
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img3.png" class="imagem" alt="Desativar os Controles de Segurança">
-    <div class="caixa-texto">Desativar os Controles de Segurança</div>
+    <img src="img/img3.png" class="imagem" alt="Desativar os Controles de Segurança" draggable="true" ondragstart="drag(event)" id="img3">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img3">
+      Desativar os Controles de Segurança
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img4.png" class="imagem" alt="Isolamento de Energia e Segurança de Máquinas">
-    <div class="caixa-texto">Isolamento de Energia e Segurança de Máquinas</div>
+    <img src="img/img4.png" class="imagem" alt="Isolamento de Energia e Segurança de Máquinas" draggable="true" ondragstart="drag(event)" id="img4">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img4">
+      Isolamento de Energia e Segurança de Máquinas
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img5.png" class="imagem" alt="Máquinas e Equipamentos Agrícolas">
-    <div class="caixa-texto">Máquinas e Equipamentos Agrícolas</div>
+    <img src="img/img5.png" class="imagem" alt="Máquinas e Equipamentos Agrícolas" draggable="true" ondragstart="drag(event)" id="img5">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img5">
+      Máquinas e Equipamentos Agrícolas
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img6.png" class="imagem" alt="Espaço Confinado">
-    <div class="caixa-texto">Espaço Confinado</div>
+    <img src="img/img6.png" class="imagem" alt="Espaço Confinado" draggable="true" ondragstart="drag(event)" id="img6">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img6">
+      Espaço Confinado
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img7.png" class="imagem" alt="Elevação Mecânica">
-    <div class="caixa-texto">Elevação Mecânica</div>
+    <img src="img/img7.png" class="imagem" alt="Elevação Mecânica" draggable="true" ondragstart="drag(event)" id="img7">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img7">
+      Elevação Mecânica
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img8.png" class="imagem" alt="Trabalho em Altura">
-    <div class="caixa-texto">Trabalho em Altura</div>
+    <img src="img/img8.png" class="imagem" alt="Trabalho em Altura" draggable="true" ondragstart="drag(event)" id="img8">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img8">
+      Trabalho em Altura
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img9.png" class="imagem" alt="Manuseio de Produtos Químicos Perigosos">
-    <div class="caixa-texto">Manuseio de Produtos Químicos Perigosos</div>
+    <img src="img/img9.png" class="imagem" alt="Manuseio de Produtos Químicos Perigosos" draggable="true" ondragstart="drag(event)" id="img9">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img9">
+      Manuseio de Produtos Químicos Perigosos
+    </div>
   </div>
 
   <div class="linha-regra">
-    <img src="img10.png" class="imagem" alt="Trabalho a Quente">
-    <div class="caixa-texto">Trabalho a Quente</div>
+    <img src="img/img10.png" class="imagem" alt="Trabalho a Quente" draggable="true" ondragstart="drag(event)" id="img10">
+    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img10">
+      Trabalho a Quente
+    </div>
   </div>
+
+  <!-- Código JS -->
+  <script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      var imagem = document.getElementById(data);
+      if (ev.target.getAttribute("data-regra") === data) {
+        ev.target.appendChild(imagem); // acerto!
+        ev.target.style.border = "2px solid green";
+      } else {
+        ev.target.appendChild(imagem); // erro!
+        ev.target.style.border = "2px solid red";
+      }
+    }
+  </script>
 </body>
 </html>
