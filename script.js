@@ -9,15 +9,21 @@ function drag(ev) {
 function drop(ev) {
   ev.preventDefault();
   const data = ev.dataTransfer.getData("text");
+  const draggedElement = document.getElementById(data);
   const target = ev.target;
 
+  // Evita múltiplas imagens no mesmo dropzone
+  if (target.querySelector('img')) return;
+
+  // Verifica se a imagem corresponde à regra
   if (target.dataset.regra === data) {
-    target.style.backgroundColor = "#c8f7c5"; // Verde
-    target.innerHTML += " ✅";
-    target.appendChild(document.getElementById(data));
+    target.style.backgroundColor = "#c8f7c5"; // verde
+    target.appendChild(draggedElement);
+    target.classList.add("acertou");
   } else {
-    target.style.backgroundColor = "#f7c5c5"; // Vermelho
-    target.innerHTML += " ❌";
+    target.style.backgroundColor = "#f7c5c5"; // vermelho
+    target.appendChild(draggedElement);
+    target.classList.add("errou");
   }
 
   checarConcluido();
@@ -26,8 +32,9 @@ function drop(ev) {
 function checarConcluido() {
   const zonas = document.querySelectorAll('.dropzone');
   let completas = 0;
+
   zonas.forEach(z => {
-    if (z.querySelector('img')) completas++;
+    if (z.classList.contains("acertou")) completas++;
   });
 
   if (completas === 10) {
