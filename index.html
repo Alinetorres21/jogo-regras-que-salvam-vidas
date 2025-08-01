@@ -12,13 +12,13 @@
 
     h1 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .linha-regra {
       display: flex;
-      align-items: stretch;
-      margin-bottom: 16px;
+      align-items: center;
+      margin-bottom: 24px;
     }
 
     .imagem {
@@ -28,19 +28,19 @@
       background-color: #fff;
       border: 2px solid #ccc;
       padding: 8px;
-      margin-right: 16px;
+      margin-right: 40px;
     }
 
     .caixa-texto {
       flex: 1;
+      max-width: 600px;
       border: 2px dashed #aaa;
       background-color: #f9f9f9;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 12px;
+      padding: 12px 18px;
       font-size: 16px;
-      transition: border-color 0.3s;
     }
   </style>
 </head>
@@ -49,87 +49,56 @@
   <h1>🔒 Regras que Salvam Vidas</h1>
   <p>Arraste a imagem para a regra correspondente:</p>
 
-  <!-- Regras -->
-  <div class="container">
   <div class="linha-regra">
-    <img src="imagens/regra1.png" class="imagem" alt="Segurança na direção" draggable="true" ondragstart="drag(event)" id="img1">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img1">
-      Segurança na direção
-    </div>
-  </div>
-
-  <div class="container">
-  <div class="linha-regra">
-    <img src="imagens/regra2.png" class="imagem" alt="Preparação para Tarefas Perigosas" draggable="true" ondragstart="drag(event)" id="img2">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img2">
-      Preparação para Tarefas Perigosas
-    </div>
+    <img src="imagens/img1.png" class="imagem" id="img1" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img1" ondrop="drop(event)" ondragover="allowDrop(event)">Segurança na direção</div>
   </div>
 
   <div class="linha-regra">
-    <img src="imagens/regra3.png" class="imagem" alt="Desativar os Controles de Segurança" draggable="true" ondragstart="drag(event)" id="img3">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img3">
-      Desativar os Controles de Segurança
-    </div>
+    <img src="imagens/img2.png" class="imagem" id="img2" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img2" ondrop="drop(event)" ondragover="allowDrop(event)">Uso de EPI</div>
   </div>
 
-    <div class="container">
-    <div class="linha-regra">
-    <img src="imagens/regra4.png" class="imagem" alt="Isolamento de Energia e Segurança de Máquinas" draggable="true" ondragstart="drag(event)" id="img4">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img4">
-      Isolamento de Energia e Segurança de Máquinas
-    </div>
-  </div>
-      
-  <div class="container">
   <div class="linha-regra">
-    <img src="imagens/regra5.png" class="imagem" alt="Máquinas e Equipamentos Agrícolas" draggable="true" ondragstart="drag(event)" id="img5">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img5">
-      Máquinas e Equipamentos Agrícolas
-    </div>
-  </div>
-    
-  <div class="container">
-  <div class="linha-regra">
-    <img src="imagens/regra6.png" class="imagem" alt="Espaço Confinado" draggable="true" ondragstart="drag(event)" id="img6">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img6">
-      Espaço Confinado
-    </div>
-  </div>
-    
-  <div class="container">
-  <div class="linha-regra">
-    <img src="imagens/regra7.png" class="imagem" alt="Elevação Mecânica" draggable="true" ondragstart="drag(event)" id="img7">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img7">
-      Elevação Mecânica
-    </div>
+    <img src="imagens/img3.png" class="imagem" id="img3" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img3" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em altura</div>
   </div>
 
-  <div class="container">
   <div class="linha-regra">
-    <img src="imagens/regra8.png" class="imagem" alt="Trabalho em Altura" draggable="true" ondragstart="drag(event)" id="img8">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img8">
-      Trabalho em Altura
-    </div>
+    <img src="imagens/img4.png" class="imagem" id="img4" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img4" ondrop="drop(event)" ondragover="allowDrop(event)">Espaço confinado</div>
   </div>
 
-  <div class="container">
- <div class="linha-regra">
-    <img src="imagens/regra9.png" class="imagem" alt="Manuseio de Produtos Químicos Perigosos" draggable="true" ondragstart="drag(event)" id="img9">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img9">
-      Manuseio de Produtos Químicos Perigosos
-    </div>
-  </div>
-
-  <div class="container">
   <div class="linha-regra">
-    <img src="imagens/regra10.png" class="imagem" alt="Trabalho a Quente" draggable="true" ondragstart="drag(event)" id="img10">
-    <div class="caixa-texto" ondrop="drop(event)" ondragover="allowDrop(event)" data-regra="img10">
-      Trabalho a Quente
-    </div>
+    <img src="imagens/img5.png" class="imagem" id="img5" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img5" ondrop="drop(event)" ondragover="allowDrop(event)">Bloqueio e etiquetagem</div>
   </div>
 
-  <!-- Código JS -->
+  <div class="linha-regra">
+    <img src="imagens/img6.png" class="imagem" id="img6" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img6" ondrop="drop(event)" ondragover="allowDrop(event)">Manuseio de produtos químicos</div>
+  </div>
+
+  <div class="linha-regra">
+    <img src="imagens/img7.png" class="imagem" id="img7" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img7" ondrop="drop(event)" ondragover="allowDrop(event)">Movimentação de cargas</div>
+  </div>
+
+  <div class="linha-regra">
+    <img src="imagens/img8.png" class="imagem" id="img8" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img8" ondrop="drop(event)" ondragover="allowDrop(event)">Máquinas e equipamentos</div>
+  </div>
+
+  <div class="linha-regra">
+    <img src="imagens/img9.png" class="imagem" id="img9" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img9" ondrop="drop(event)" ondragover="allowDrop(event)">Trabalho em eletricidade</div>
+  </div>
+
+  <div class="linha-regra">
+    <img src="imagens/img10.png" class="imagem" id="img10" draggable="true" ondragstart="drag(event)">
+    <div class="caixa-texto" data-regra="img10" ondrop="drop(event)" ondragover="allowDrop(event)">Conduta em áreas perigosas</div>
+  </div>
+
   <script>
     function allowDrop(ev) {
       ev.preventDefault();
@@ -141,13 +110,13 @@
 
     function drop(ev) {
       ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      var imagem = document.getElementById(data);
+      const data = ev.dataTransfer.getData("text");
+      const img = document.getElementById(data);
       if (ev.target.getAttribute("data-regra") === data) {
-        ev.target.appendChild(imagem); // acerto!
+        ev.target.appendChild(img);
         ev.target.style.border = "2px solid green";
       } else {
-        ev.target.appendChild(imagem); // erro!
+        ev.target.appendChild(img);
         ev.target.style.border = "2px solid red";
       }
     }
